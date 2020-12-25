@@ -178,13 +178,9 @@ class blocked extends user
 
     function isBlocked($user)
     {
-        if(IsUsernameExist()){
-            
-        }
         $paramTypes = "ss";
         $Parameters = array($this->username, $user);
         $result = database::ExecuteQuery('isBlock', $paramTypes, $Parameters);
-
         if(mysqli_num_rows($result) > 0)
               return true;
         return false;
