@@ -1,17 +1,19 @@
-body {
-   
-    background-color: #EDF0F2;
-    display: flex;
-    justify-content: center;
+*{
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
 }
-
-.content {
+html,
+body {
+    height: 100%;
+}
+html{
+    
     background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 188, 0.521) 100%);
-    background-color: white;
-    font-family: f1;
-    margin: 100px 50px;
-    height: auto;
-    width: 500px;
-    box-shadow:0px 0px 15px rgba(131, 131, 131, 0.6);
-    border-radius: 1px;
+    font-size: 10px;
+}
+body 
+{
+    display: grid;
+    place-items: center;
 }
