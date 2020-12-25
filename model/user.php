@@ -139,7 +139,7 @@ class message
     function setMessage($input_message)
     {
         $this->text_message = $input_message;
-    } 
+    }
 
 
 }
@@ -157,5 +157,28 @@ class contact extends user
         $result = database::ExecuteQuery('getContactList', $paramTypes, $Parameters);
         $contactList = $result->fetchAll();
     }
+
+
+}
+
+class blocked extends user
+{
+    private $blockedList;
+
+    function isBlocked($user)
+    {
+        if(IsUsernameExist()){
+            
+        }
+        $paramTypes = "ss";
+        $Parameters = array($this->username, $user);
+        $result = database::ExecuteQuery('isBlock', $paramTypes, $Parameters);
+
+        if(mysqli_num_rows($result) > 0)
+              return true;
+        return false;
+    }
+
+
 }
 ?>
