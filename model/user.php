@@ -150,12 +150,23 @@ class contact extends user
     private $contactList; // list
     
 
+    function isContact($user) {
+        $paramTypes = "ss";
+        $Parameters = array($this->username, $user);
+        $result = database::ExecuteQuery('isContact', $paramTypes, $Parameters);
+        if(mysqli_num_rows($result) > 0)
+              return true;
+        return false;
+        }
+    }
+
     function contactList() {
         $this->contactList = array();
         $paramTypes = "s";
         $Parameters = array($this->getUsername());
         $result = database::ExecuteQuery('getContactList', $paramTypes, $Parameters);
         $contactList = $result->fetchAll();
+
     }
 }
 ?>
