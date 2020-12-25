@@ -17,3 +17,131 @@ body
     display: grid;
     place-items: center;
 }
+ #chat-container {
+    display: grid;
+    grid:
+        'search-containe chat-title' 71px
+        'Contacts-list chat-massage-list' 1fr
+        'new-message-contacts chatPage' 78px
+        / 275px 1fr;
+    min-width: 800px; 
+    max-width: 1000px; 
+    max-height: 800px;
+    width: 100%;
+    height: 95vh;
+    background: #fff;
+    border-radius: 10px;
+} 
+#search-contacts,
+#Contacts-list,
+#new-message-contacts{
+    background: #5a85c2;
+}
+#search-contacts {
+    display: grid;
+    align-items: center;
+    padding: 0 20px;
+    grid-area: search-containe ;
+    border-radius: 10px 0 0 0;
+    box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
+    z-index: 1;
+}
+#search-contacts input {
+    color: #eee;
+    outline: none;
+    font-weight: bold;
+    border-radius: 2px;
+    height: 30px;
+    border: 0;
+    padding-left: 15px;
+    font-size: 1.4rem;
+    background-position: 15px center;
+    background-size: 20px 20px;
+    background:  rgba(235, 241, 243, 0.3);
+    background-size: 20px 20px;
+
+}
+#search-contacts input::placeholder{
+    color: #ddd;
+}
+#Contacts-list {
+    grid-area: Contacts-list;
+}
+
+#new-message-contacts
+{
+    display: grid;
+    grid:35px / 35px; 
+    grid-area: new-message-contacts;
+    border-top: 1px solid rgba(0, 0,0,0.25);
+    border-radius: 0 0 0 10px;
+    padding:15px;
+    padding-top:10px;
+}
+#new-message-contacts a
+{
+    display:grid;
+    place-content:center center;
+    background: #eee;
+    border-radius: 100%;
+    color:#002c88;
+    text-decoration: none;
+    font-size:3.6rem;
+    cursor: pointer;
+}
+#chat-title,
+#chatPage {
+    background: #eee; 
+}
+#chat-title
+{
+    display: grid;
+    grid: 36px / 1fr 36px;
+    align-items: center;
+    align-content: center;
+    grid-area: chat-title; 
+    color: #0048AA;
+    font-weight: bold;
+    font-size:2.0rem;
+    border-radius: 0 10px 0 0;
+    box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
+    padding: 0 20px;
+}
+
+
+#chat-massage-list
+{
+    grid-area: chat-massage-list;
+}
+#chatPage
+{
+    display: grid;
+    grid:36px / 1fr 36px;
+    align-items: center;
+    align-content: center;
+    grid-gap:15px;
+    grid-area: chatPage;
+    border-radius: 0 0 10px 0;
+    border-top: 1px solid rgba(0, 0,0,0.25);
+    padding-left: 42px;
+    padding-right: 22px;
+
+}
+#chatPage img
+{
+    cursor: pointer;
+    height: 50px;
+
+}
+.txtArea {
+    outline: none;
+    border: 2px solid #ddd;
+    padding: 10px;
+    margin-right: 60px ;
+    resize: none;
+    width: 100%;
+    display: block;
+    line-height: 1;
+    min-width: 30px;
+    height: 37px;
+}
