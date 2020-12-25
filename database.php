@@ -58,7 +58,7 @@ abstract class database
             echo "Error!";
 
         $connection->close();
-        // return $result;
+        return $result;
     }
 
 
