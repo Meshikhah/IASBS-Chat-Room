@@ -68,7 +68,7 @@ class user extends person
     {
         $paramTypes = "ss";
         $Parameters = array($this->username, $this->password);
-        $result = database::ExecuteQuery('CheckUserPass', $paramTypes, $Parameters);
+        $result = database::ExecuteQuery('checkUserPass', $paramTypes, $Parameters);
 
         if(mysqli_num_rows($result) > 0)
         {
