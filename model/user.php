@@ -157,7 +157,7 @@ class contact extends user
         if(mysqli_num_rows($result) > 0)
               return true;
         return false;
-        }
+        
     }
 
     function contactList() {
