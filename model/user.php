@@ -147,6 +147,7 @@ class message
 
 class contact extends user
 {
+    
     private $contactList; // list
     
 
@@ -159,13 +160,25 @@ class contact extends user
         return false;
         
     }
-
+    
     function contactList() {
         $this->contactList = array();
         $paramTypes = "s";
         $Parameters = array($this->getUsername());
         $result = database::ExecuteQuery('getContactList', $paramTypes, $Parameters);
-        $contactList = $result->fetchAll();
+
+
+        while ($row = $result->fetch_array())
+        {
+            $tempContact = "";
+            if($row['user'] == $this->username)
+                $tempContact = $row['contact'];
+            else 
+                $tempContact = $row['user'];
+
+            array_push($this->contactList, $tempContact);
+        }
+        return $this->contactList;
 
     }
 
@@ -185,7 +198,6 @@ class blocked extends user
               return true;
         return false;
     }
-
-
 }
+
 ?>
