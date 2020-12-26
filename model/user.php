@@ -145,11 +145,16 @@ class message
 }
 
 
-class contact extends user
+class contact
 {
     
+    private $username;
     private $contactList; // list
-    
+
+    function setUsername($username) {
+        $this->username = $username;
+    }
+
 
     function isContact($user) {
         $paramTypes = "ss";

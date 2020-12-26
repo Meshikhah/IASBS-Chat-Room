@@ -7,6 +7,7 @@ if(!isset($_SESSION['USER'])) {
 else
 {
     $u = unserialize($_SESSION['USER']);
+    
     $WelcomeMessage = 'Welcome '.$u->getName(). ' '.$u->getFamily();
 }
 
