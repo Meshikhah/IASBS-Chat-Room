@@ -214,9 +214,22 @@ class blocked
     private $username;
     private $blockedList;
 
+    function __construct($username)
+    {
+        $this->username = $username;
+        $this->getBlockdList();
+    }
+
     function setUsername($username)
     {
         $this->username = $username;
+    }
+
+    function addBlocked($user) {
+        $paramTypes = "ss";
+        $Parameters = array($this->username, $user);
+        database::ExecuteQuery('addBlocked', $paramTypes, $Parameters);
+        $this->getBlockdList();
     }
 
     function isBlocked($user)
@@ -227,6 +240,28 @@ class blocked
         if(mysqli_num_rows($result) > 0)
               return true;
         return false;
+    }
+
+    function getBlockdList()
+    {
+        $this-> blockedList = array();
+        $paramTypes = "s";
+        $Parameters = array($this->username);
+        $result = database::ExecuteQuery('getBlockedList', $paramTypes, $Parameters);
+
+
+        while ($row = $result->fetch_array())
+        {
+            $tempBlock = "";
+            if($row['user'] == $this->username)
+                $tempBlock = $row['block'];
+            else 
+                $tempBlock = $row['user'];
+
+            array_push($this->blockedList, $tempBlock);
+        }
+        return $this->blockedList;
+
     }
 }
 
