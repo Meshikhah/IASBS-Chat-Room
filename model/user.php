@@ -185,9 +185,15 @@ class contact extends user
 
 }
 
-class blocked extends user
+class blocked
 {
+    private $username;
     private $blockedList;
+
+    function setUsername($username)
+    {
+        $this->username = $username;
+    }
 
     function isBlocked($user)
     {
