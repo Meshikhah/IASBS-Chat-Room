@@ -217,6 +217,13 @@ class blocked
         $this->username = $username;
     }
 
+    function addBlocked($user) {
+        $paramTypes = "ss";
+        $Parameters = array($this->username, $user);
+        database::ExecuteQuery('addBlocked', $paramTypes, $Parameters);
+        $this->getBlockdList();
+    }
+
     function isBlocked($user)
     {
         $paramTypes = "ss";
@@ -237,15 +244,15 @@ class blocked
 
         while ($row = $result->fetch_array())
         {
-            $tempContact = "";
+            $tempBlock = "";
             if($row['user'] == $this->username)
-                $tempContact = $row['   '];
+                $tempBlock = $row['block'];
             else 
-                $tempContact = $row['user'];
+                $tempBlock = $row['user'];
 
-            array_push($this->contactList, $tempContact);
+            array_push($this->blockedList, $tempBlock);
         }
-        return $this->contactList;
+        return $this->blockedList;
 
     }
 }
