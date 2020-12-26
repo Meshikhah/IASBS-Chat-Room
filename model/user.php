@@ -151,10 +151,21 @@ class contact
     private $username;
     private $contactList; // list
 
+    function __construct($username) {
+        $this->username = $username;
+        $this->getContactList();
+    }
+
     function setUsername($username) {
         $this->username = $username;
     }
 
+    function addContact($user) {
+        $paramTypes = "ss";
+        $Parameters = array($this->username, $user);
+        database::ExecuteQuery('addContact', $paramTypes, $Parameters);
+        $this->getContactList();
+    }
 
     function isContact($user) {
         $paramTypes = "ss";
@@ -166,10 +177,10 @@ class contact
         
     }
     
-    function contactList() {
+    function getContactList() {
         $this->contactList = array();
         $paramTypes = "s";
-        $Parameters = array($this->getUsername());
+        $Parameters = array($this->username);
         $result = database::ExecuteQuery('getContactList', $paramTypes, $Parameters);
 
 
