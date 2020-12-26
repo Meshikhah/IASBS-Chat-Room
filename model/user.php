@@ -159,6 +159,14 @@ class contact
     function setUsername($username) {
         $this->username = $username;
     }
+    
+    function getCountContactList() {
+        return count($this->contactList);
+    }
+
+    function getlist() {
+        return $this->contactList;
+    }
 
     function addContact($user) {
         $paramTypes = "ss";
