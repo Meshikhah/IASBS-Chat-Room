@@ -195,6 +195,12 @@ class blocked
     private $username;
     private $blockedList;
 
+    function __construct($username)
+    {
+        $this->username = $username;
+        $this->getBlockdList();
+    }
+
     function setUsername($username)
     {
         $this->username = $username;
@@ -208,6 +214,28 @@ class blocked
         if(mysqli_num_rows($result) > 0)
               return true;
         return false;
+    }
+
+    function getBlockdList()
+    {
+        $this-> blockedList = array();
+        $paramTypes = "s";
+        $Parameters = array($this->username);
+        $result = database::ExecuteQuery('getBlockedList', $paramTypes, $Parameters);
+
+
+        while ($row = $result->fetch_array())
+        {
+            $tempContact = "";
+            if($row['user'] == $this->username)
+                $tempContact = $row['   '];
+            else 
+                $tempContact = $row['user'];
+
+            array_push($this->contactList, $tempContact);
+        }
+        return $this->contactList;
+
     }
 }
 
