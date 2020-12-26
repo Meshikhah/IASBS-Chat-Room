@@ -1,6 +1,7 @@
 <?php
 
 require_once "database.php";
+require_once "config.php";
 abstract class person
 {
     public $name;

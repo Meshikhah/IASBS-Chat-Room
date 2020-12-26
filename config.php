@@ -1,8 +1,8 @@
 <?php
 $server = 'localhost';
 $db_username = 'root';
-$db_password = '1234';
-$db_name = 'messenger';
+$db_password = 'hello123';
+$db_name = 'messenger3';
 
 $ViewPath = 'view/';
 $ShareFolderPath = 'view/share/';

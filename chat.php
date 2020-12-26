@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "model/user.php";
+require_once "config.php";
 if(!isset($_SESSION['USER'])) {
     header('Location: index.php');
 }
