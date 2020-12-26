@@ -9,8 +9,9 @@ else
     $u = unserialize($_SESSION['USER']);
     $contact_user = new contact($u->getUsername());
     $WelcomeMessage = 'Welcome '.$u->getName(). ' '.$u->getFamily().' '.PHP_EOL;
-    for ($i=0; $i < $contact_user->getContactList(); $i++)
-        $WelcomeMessage .= $contact_user->getlist()[$i];
+    echo $WelcomeMessage;
+    // for ($i=0; $i < $contact_user->getContactList(); $i++)
+    //     $WelcomeMessage .= $contact_user->getlist()[$i];
 }
 
 require "config.php";
