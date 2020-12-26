@@ -7,7 +7,8 @@ if(!isset($_SESSION['USER'])) {
 else
 {
     $u = unserialize($_SESSION['USER']);
-    
+    $contact_user = new contact($u->getUsername());
+    for ($i = 0; $i < )
     $WelcomeMessage = 'Welcome '.$u->getName(). ' '.$u->getFamily();
 }
 
