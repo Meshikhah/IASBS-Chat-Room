@@ -50,7 +50,7 @@
     function check() {
         errorsField = document.getElementById('errors')
         firstName = document.getElementById('uiName').value
-        lastName = document.getElementById('uiLastName').value
+        lastName = document.getElementById('uiFamily').value
         email = document.getElementById('uiEmail').value
         inneredHtml = ''
 		errorsField.innerHTML = inneredHtml
@@ -93,6 +93,7 @@
 		}
 		
         // console.log(inneredHtml)
+		document.getElementById("myForm").submit();
 		return true;
 		
 
