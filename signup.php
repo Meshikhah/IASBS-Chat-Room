@@ -53,8 +53,11 @@ function validation()
 
     if($_POST["uiPassword"] != $_POST["uiConfirmPassword"])
         $Message .= 'Password and confirmation password do not match.'."<br/>";
-
+    
+    if(!filter_var($_POST["uiEmail"], FILTER_VALIDATE_EMAIL))
+    {
+        $Message .= 'Invalid Email format.'."<br/>";
+    }
     return $Message;
 }
-
 ?>
