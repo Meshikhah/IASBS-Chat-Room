@@ -14,7 +14,7 @@ if(isset($_POST['uiRegister']))
     $uiName_cv = $_POST['uiName'];
     $uiFamily_cv = $_POST['uiFamily'];
     $uiUsername_cv = $_POST['uiUsername'];
-    $uiEmail_cv = $_POST["uiEamil"];
+    $uiEmail_cv = $_POST["uiEmail"];
 
     $validationMessage = validation();
     if($validationMessage == "") {
