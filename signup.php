@@ -7,7 +7,7 @@ $Message = '';
 $uiName_cv = "";
 $uiFamily_cv = "";
 $uiEmail_cv = "";
-$uiUserName_cv = "";
+$uiUsername_cv = "";
 
 if(isset($_POST['uiRegister']))
 {
