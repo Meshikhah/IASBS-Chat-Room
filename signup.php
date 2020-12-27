@@ -9,7 +9,7 @@ $uiFamily_cv = "";
 $uiEmail_cv = "";
 $uiUserName_cv = "";
 
-if(isset($_POST['submit']))
+if(isset($_POST['uiRegister']))
 {
     $uiName_cv = $_POST['uiName'];
     $uiFamily_cv = $_POST['uiFamily'];
