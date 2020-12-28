@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/signup.css">
-    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
 </head>
@@ -53,10 +53,11 @@
 
                 <div class="field">
                     <div class="caption">
-                       <label for="pass">Password</label>
+                       <label for="pass">Password (8 characters minimum)</label>
                     </div>
                     <div class="controls">
-                       <input class="input_c en" type="text" name="uiPassword" id="pass" onkeypress="limitCharchters(50,'pass',event); allEnglishCodes(event)">
+                       <input class="input_c en" type="password" name="uiPassword" id="pass" onkeypress="limitCharchters(50,'pass',event); allEnglishCodes(event)">
+					   <i class="far fa-eye" id="togglePassword"></i>
                     </div>
                    
                 </div>
@@ -67,7 +68,8 @@
                        <label for="confirmPass">Confirm Password</label>
                     </div>
                     <div class="controls">
-                       <input class="input_c en" type="text" name="uiConfirmPassword" id="confirmPass">
+                       <input class="input_c en" type="password" name="uiConfirmPassword" id="confirmPass">
+					   <i class="far fa-eye" id="togglePassword"></i>
                     </div>
                 </div>
 				<div id="errors" class="errors">

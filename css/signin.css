@@ -102,3 +102,15 @@ fieldset{
 .signup {
   text-align: center;
 }
+
+.controls{
+	position:relative;
+}
+#togglePassword1
+{
+	position:absolute;
+	top:8px;
+	right:5px;
+	cursor:pointer;
+	opacity: 0.5;
+}
