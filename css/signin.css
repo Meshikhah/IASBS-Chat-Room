@@ -98,6 +98,9 @@ fieldset{
 	color: red;
 	
 }
+.signup {
+  text-align: center;
+}
 .controls{
 	position:relative;
 }
