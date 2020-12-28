@@ -10,7 +10,7 @@
 <body>
     <!-------------------content------------------->
     <div class="content">
-		<span><?php echo $Message; ?></span>
+		
         <form action="signup.php" method="POST" id="myForm">
             <fieldset>
                 <div class="field">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
 				<div id="errors" class="errors">
-				
+					<span><?php echo $Message; ?></span>
 				</div>
                 <div class="btn">
                     <input class="submit"type="btn" name="uiRegister" value="Register" onclick="check()" readonly />
