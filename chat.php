@@ -10,7 +10,8 @@ else
     $u = unserialize($_SESSION['USER']);
     $contact_user = new contact($u->getUsername());
     $WelcomeMessage = 'Welcome '.$u->getName(). ' '.$u->getFamily().' '.PHP_EOL;
-    echo $WelcomeMessage;
+    echo $WelcomeMessage.PHP_EOL;
+    $contact_user->fetchContactlist();
     // for ($i=0; $i < $contact_user->getContactList(); $i++)
     //     $WelcomeMessage .= $contact_user->getlist()[$i];
 }
