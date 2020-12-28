@@ -206,7 +206,14 @@ class contact
         return $this->contactList;
 
     }
-
+    function fetchContactlist()
+    {
+        $echoList = "";
+        for($i = 0; $i < count($this->contactList); $i++) {
+            $echoList .= $this->contactList[$i].PHP_EOL;
+        }
+        echo $echoList;
+    }
 
 }
 
