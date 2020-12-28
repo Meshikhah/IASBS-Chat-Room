@@ -24,7 +24,6 @@ body {
 
 }
 
-
 .ftr {
     position: fixed;
     z-index: -1;
@@ -99,18 +98,15 @@ fieldset{
 	color: red;
 	
 }
-.signup {
-  text-align: center;
-}
-
 .controls{
 	position:relative;
 }
-#togglePassword1
+#togglePassword
 {
 	position:absolute;
 	top:8px;
 	right:5px;
 	cursor:pointer;
 	opacity: 0.5;
+	
 }

@@ -10,7 +10,7 @@
 <body>
     <!-------------------content------------------->
     <div class="content">
-        <span><?php echo $Message; ?></span>
+        <span id="ridAM"><?php echo $Message; ?></span>
         <form action="index.php" method="POST">
             <fieldset>
                 <div class="field">
@@ -23,10 +23,10 @@
                 </div>
                 <div class="field">
                     <div class="caption">
-                       <label for="pass">Password</label>
+                       <label for="pass">Password (8 characters minimum)</label>
                     </div>
                     <div class="controls">
-                       <input class="input_c en" type="text" id="pass" name="uiPassword">
+                       <input class="input_c en" type="password" name="uiPassword" id="pass">
 					   <i class="far fa-eye" id="togglePassword"></i>
                     </div>
                    
