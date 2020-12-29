@@ -67,7 +67,32 @@ body
 #Contacts-list {
     grid-area: Contacts-list;
 }
+.Contacts
+{
+    display: grid;
+    
+    
+    color: #ddd;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #002c88;
+    padding: 20px 20px 20px 15px;
 
+}
+.Contacts.active,
+.Contacts:hover{
+    background: #002c88;
+}
+.Contacts:hover{
+    cursor: pointer;
+}
+.title-txt{
+    font-weight: bold;
+    color:#eee;
+}
+.date{
+    color: #ddd;
+    font-size: 1rem;
+}
 #new-message-contacts
 {
     display: grid;
@@ -107,7 +132,17 @@ body
     box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
     padding: 0 20px;
 }
-
+#Profile{
+    display:grid;
+    place-content:center center;
+    background: #eee;
+    border-radius: 100%;
+    color:#002c88;
+    text-decoration: none;
+    font-size:1.6rem;
+    cursor: pointer;
+    width: 50px;
+}
 
 #chat-massage-list
 {

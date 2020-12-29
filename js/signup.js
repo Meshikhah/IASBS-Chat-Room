@@ -1,4 +1,5 @@
-	function allEnglishCodes(e) {
+    var state=false;
+    function allEnglishCodes(e) {
         var englishUniCode = /^[A-Za-z0-9-+!#$*=]*$/;
         if (englishUniCode.test(e.key)) {
         }
@@ -46,7 +47,23 @@
         const selectValue = document.getElementById(selectId).value
         console.log(event)
     }
-
+    
+	function toggle(){
+        
+		if(state)
+			{
+				document.getElementById("pass").setAttribute("type","password"); 
+				//document.getElementById("togglePassword").style.color='#7a797e';
+                state=false;
+                		
+			}
+			else
+			{
+				document.getElementById("pass").setAttribute("type","text"); 
+				document.getElementById("togglePassword").style.color='#5887ef';
+				state=true;
+			}
+    }
     function check() {
         errorsField = document.getElementById('errors')
         firstName = document.getElementById('uiName').value
