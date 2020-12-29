@@ -20,7 +20,7 @@
 		<div id="search-contacts">
 			<input type="text" placeholder="search" />
 		</div>
-		<div  ng-app="userContacts" id="Contacts-list" >
+		<div  ng-app="userContacts" id="Contacts-list">
 			<div ng-controller="userContactsController">
 				
 				<div class="Contacts"  ng-repeat="r in lst | filter : paginate | filter : searchData">
