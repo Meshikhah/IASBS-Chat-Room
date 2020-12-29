@@ -1,4 +1,5 @@
     var state=false;
+    var state_ConfirmPassword=false;
     function allEnglishCodes(e) {
         var englishUniCode = /^[A-Za-z0-9-+!#$*=]*$/;
         if (englishUniCode.test(e.key)) {
@@ -62,6 +63,21 @@
 				document.getElementById("pass").setAttribute("type","text"); 
 				document.getElementById("togglePassword").style.color='#5887ef';
 				state=true;
+			}
+    }
+    function toggle_ConfirmPassword(){
+		if(state_ConfirmPassword)
+			{
+				document.getElementById("confirmPass").setAttribute("type","password"); 
+				document.getElementById("togglePasswordcs").style.color='#7a797e';
+                state_ConfirmPassword=false;
+                		
+			}
+			else
+			{
+				document.getElementById("confirmPass").setAttribute("type","text"); 
+				document.getElementById("togglePasswordcs").style.color='#5887ef';
+				state_ConfirmPassword=true;
 			}
     }
     function check() {
