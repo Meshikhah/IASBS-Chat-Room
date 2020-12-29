@@ -20,9 +20,16 @@
 		<div id="search-contacts">
 			<input type="text" placeholder="search" />
 		</div>
-		<div id="Contacts-list">
+		<div id="Contacts-list" ng-controller="userContactsController" ng-repeat="r in lst">
+
+			<div class="Contacts">
+				<div class="title-txt">{{r.username}}</div>
+				<!-- <div class="date">{{r.name}}</div>
+				<div class="Contacts-Message">{{r.family}}</div> -->
+			</div>
 			
-			<div class="Contacts">
+		
+			<!-- <div class="Contacts">
 				
 				<div class="title-txt">
 					Reza Masomi
@@ -47,7 +54,7 @@
 					this is a Message
 				</div>
 
-			</div>
+			</div> -->
 
 		</div>
 		<div id="new-message-contacts">

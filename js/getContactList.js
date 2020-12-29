@@ -1,10 +1,10 @@
 var app = angular.module('userContacts', ['ui.bootstrap']);
 
-app.controller('UsersListController', function ($scope, $http) {
+app.controller('userContactsController', function ($scope, $http) {
     $scope.showLoader = true;
     $http.get('getContactList.php').then(function (d) {
-        // $scope.lst = d.data;
-        // $scope.totalItems = $scope.lst.length;
+        $scope.lst = d.data;
+        $scope.totalItems = $scope.lst.length;
         // $scope.currentPage = 1;
         // $scope.numPerPage = 5;
 
