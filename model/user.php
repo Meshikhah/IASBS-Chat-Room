@@ -116,6 +116,7 @@ class message
     private $to_user;
     private $text_message;
     private $time_status;
+    private $messageList;
 
     function getFromUser()
     {
@@ -142,6 +143,24 @@ class message
         $this->text_message = $input_message;
     }
 
+    function getMessageList($username) {
+        $this->messageList = array("message"=>array(), "date"=>array());
+        // $tempMessage = array("message"=>array(), "date"=>array());
+        $paramTypes = "ss";
+        $Parameters = array($this->username, $username);
+        $result = database::ExecuteQuery('getMessageList', $paramTypes, $Parameters);
+
+        
+        while ($row = $result->fetch_array())
+        {
+            // $tempMessage = $row['message'];
+            array_push($this->messageList["message"], $row["message"]);
+            array_push($this->messageList["date"], $row["date"]);
+            // array_push($this->messageList, $tempMessage);
+        }
+        return $this->messageList;
+
+    }
 
 }
 
