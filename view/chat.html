@@ -16,19 +16,23 @@
 </head>
 
 <body>
-	<div id="chat-container" ng-app="userContacts">
+	<div id="chat-container">
 		<div id="search-contacts">
 			<input type="text" placeholder="search" />
 		</div>
-		<div id="Contacts-list" ng-controller="userContactsController" ng-repeat="r in lst">
+		<div  ng-app="userContacts" id="Contacts-list" >
+			<div ng-controller="userContactsController">
+				
+				<div class="Contacts"  ng-repeat="r in lst | filter : paginate | filter : searchData">
+					<div class="title-txt">{{r}}</div>
+					<!-- <div class="date">{{r.name}}</div>
+					<div class="Contacts-Message">{{r.family}}</div> -->
+				</div>
 
-			<div class="Contacts">
-				<div class="title-txt">{{r.username}}</div>
-				<!-- <div class="date">{{r.name}}</div>
-				<div class="Contacts-Message">{{r.family}}</div> -->
+
 			</div>
 			
-		
+				
 			<!-- <div class="Contacts">
 				
 				<div class="title-txt">

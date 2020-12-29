@@ -215,7 +215,7 @@ class contact
     {
         $list =  array();
         for($i = 0; $i < count($this->contactList); $i++) {
-            $echoList[$i] = $this->contactList[$i]->jsonSerialize();
+            $list[$i] = get_object_vars($this->contactList[$i]);
         }
         return $list;
     }
