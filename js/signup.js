@@ -53,7 +53,7 @@
 		if(state)
 			{
 				document.getElementById("pass").setAttribute("type","password"); 
-				//document.getElementById("togglePassword").style.color='#7a797e';
+				document.getElementById("togglePassword").style.color='#7a797e';
                 state=false;
                 		
 			}
