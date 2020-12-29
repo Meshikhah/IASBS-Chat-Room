@@ -215,7 +215,7 @@ class contact
     {
         $list =  array();
         for($i = 0; $i < count($this->contactList); $i++) {
-            $list[$i] = get_object_vars($this->contactList[$i]);
+            $list[$i] = $this->contactList[$i];
         }
         return $list;
     }
