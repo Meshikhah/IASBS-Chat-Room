@@ -4,6 +4,7 @@ require_once "config.php";
 require_once "model/user.php";
 
 if(isset($_SESSION['USER'])) {
-    $usersList = user::getContactList();
-    echo json_encode($usersList);
+    $u = unserialize($_SESSION['USER']);
+    $userContacts = new contact($u->getUsername());
+    echo json_encode($userContacts);
 }
