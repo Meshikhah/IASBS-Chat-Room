@@ -116,3 +116,16 @@ fieldset{
 	color:#7a797e;
 	
 }
+.controls{
+	position:relative;
+}
+#togglePasswordcs
+{
+	position:absolute;
+	top:8px;
+	right:5px;
+	cursor:pointer;
+	opacity: 0.5;
+	color:#7a797e;
+	
+}
