@@ -206,13 +206,18 @@ class contact
         return $this->contactList;
 
     }
+
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
+
     function fetchContactlist()
     {
-        $echoList = "";
+        $list =  array();
         for($i = 0; $i < count($this->contactList); $i++) {
-            $echoList .= $this->contactList[$i].PHP_EOL;
+            $echoList[i] = $this->contactList[$i]->jsonSerialize();
         }
-        echo $echoList;
+        return $list;
     }
 
 }
