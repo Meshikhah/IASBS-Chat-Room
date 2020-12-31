@@ -16,28 +16,31 @@
 </head>
 
 <body>
-	<div id="chat-container">
+	<div ng-app="userContacts" id="chat-container">
 		<div id="search-contacts">
 			<input type="text" placeholder="search" />
 		</div>
-		<div  ng-app="userContacts" id="Contacts-list">
-			<div ng-controller="userContactsController">
+
+
+		<div ng-controller="userContactsController">
+			<div id="Contacts-list">
 				
-				<div class="Contacts"  ng-repeat="r in lst | filter : paginate | filter : searchData">
+				<div class="Contacts" ng-click="onClick()" ng-repeat="r in lst | filter : paginate | filter : searchData">
 					<div class="title-txt">{{r}}</div>
 					<div class="date">1999/01/06</div>
 					<div class="Contacts-Message">hey!</div>
 				</div>
 
-
+			
 			</div>
 		</div>
+
 		<div id="new-message-contacts">
 			<a id="new-message" herf="#">+</a>
 			 
 		</div>
 		<div id="chat-title">
-			<span>Reza Masomi</span>	
+			<span></span>	
 
 		</div>
 		<div id="chat-massage-list">
@@ -55,10 +58,14 @@
 				<div class="massage-time">azar 25</div>
 			</div>
 		</div>
+		
 		<div id="chatPage">
 			<textarea class="txtArea" placeholder="type a Message "></textarea>
 			<a href="#" ><img src="image/send.png" alt="send"></a>
 		</div>
+
+
+		
 
 	</div>
 
