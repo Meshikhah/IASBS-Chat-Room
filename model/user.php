@@ -144,24 +144,27 @@ class message
     }
 
     function getMessageList($username) {
-        $this->messageList = array("message"=>array(), "date"=>array());
+        $this->messageList = array("from_user"=>array(), "message"=>array(), "date"=>array());
         // $tempMessage = array("message"=>array(), "date"=>array());
         $paramTypes = "ss";
-        $Parameters = array($this->username, $username);
+        $Parameters = array($this->from_user, $username);
         $result = database::ExecuteQuery('getMessageList', $paramTypes, $Parameters);
 
         
         while ($row = $result->fetch_array())
         {
             // $tempMessage = $row['message'];
+
+            if($row["to_user"] == $username) 
+                array_push($this->messageList["from_user"], $username);
+            else array_push($this->messageList["from_user"], $this->from_user);
+
             array_push($this->messageList["message"], $row["message"]);
             array_push($this->messageList["date"], $row["date"]);
             // array_push($this->messageList, $tempMessage);
         }
         return $this->messageList;
-
     }
-
 }
 
 
