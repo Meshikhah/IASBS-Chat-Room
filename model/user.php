@@ -118,6 +118,11 @@ class message
     private $time_status;
     private $messageList;
 
+    function __construct($username) {
+        $this->from_user = $username;
+        getMessageList();
+    }
+
     function getFromUser()
     {
         return $this->from_user;
@@ -164,6 +169,15 @@ class message
             // array_push($this->messageList, $tempMessage);
         }
         return $this->messageList;
+    }
+
+    function fetchMessagelist()
+    {
+        $list = array("from_user"=>array(), "message"=>array(), "date"=>array());
+        for($i = 0; $i < count($this->messageList); $i++) {
+            $list[$i] = $this->messageList[$i];
+        }
+        return $list;
     }
 }
 

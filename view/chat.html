@@ -25,7 +25,7 @@
 		<div ng-controller="userContactsController">
 			<div id="Contacts-list">
 				
-				<div class="Contacts" ng-click="onClick()" ng-repeat="r in lst | filter : paginate | filter : searchData">
+				<div class="Contacts" ng-click="onclick($index)" ng-repeat="r in lst">
 					<div class="title-txt">{{r}}</div>
 					<div class="date">1999/01/06</div>
 					<div class="Contacts-Message">hey!</div>
