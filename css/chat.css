@@ -168,6 +168,7 @@ body
 .massage-text{
     overflow-wrap: break-word;
     word-wrap: break-word;
+	word-break:break-word;
     hyphens: auto;
     padding: 9px 14px;
     font-size: 1.6rem;
