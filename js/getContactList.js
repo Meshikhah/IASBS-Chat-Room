@@ -26,8 +26,36 @@ app.controller('userContactsController', function ($scope, $http) {
 
         $scope.showLoader = false;
 
+        $scope.$watch("name", function(){
+            Data.setScope($scope.lst[$index]);
+        });
+
     }, function (error) {
         alert('failed to load users list');
     });
 
+});
+
+app.controller("userMessageController", function($scope, $http){
+    $scope.userName;
+
+    $scope.$watch(function(){
+        $scope.userName = Data.getScope()
+    });
+});
+
+
+app.factory("Data", function(){
+
+    var data = {
+        name:""
+    };
+    return {
+        getScope: function(){
+            return data.name;
+        },
+        setScope: function(setData){
+            data.name = setData;
+        }
+    }
 });

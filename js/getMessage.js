@@ -26,3 +26,4 @@ app.controller('userContactsController', function ($scope, $http) {
     });
 
 });
+
