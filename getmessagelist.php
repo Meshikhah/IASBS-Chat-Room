@@ -5,7 +5,7 @@ require_once "model/user.php";
 
 
 $u = unserialize($_SESSION['USER']);
-$messageClass = new message($u->getUsername(), 'mafi');
+$messageClass = new message($u->getUsername(), 'masih');
 
 $list = $messageClass->fetchMessagelist();
 
