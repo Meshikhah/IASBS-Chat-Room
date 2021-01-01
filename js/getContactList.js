@@ -26,9 +26,16 @@ app.controller('userContactsController', function ($scope, $http) {
 
         $scope.showLoader = false;
 
-        $scope.$watch("name", function(){
-            Data.setScope($scope.lst[$index]);
+        // $scope.$watch("name", function(){
+        //     Data.setScope($scope.lst[$index]);
+        // });
+
+        var request = $http({
+            method: "post",
+            url: 'getMessage.php',
+            data: {un:$scope.userName}
         });
+        
 
     }, function (error) {
         alert('failed to load users list');
@@ -36,26 +43,32 @@ app.controller('userContactsController', function ($scope, $http) {
 
 });
 
-app.controller("userMessageController", function($scope, $http){
-    $scope.userName;
+// app.controller("userMessageController", function($scope, $http){
+//     $scope.userName;
 
-    $scope.$watch(function(){
-        $scope.userName = Data.getScope()
-    });
-});
+//     $scope.$watch(function(){
+//         $scope.userName = Data.getScope()
+//     });
+
+//     var request = $http({
+//         method: "post",
+//         url: 'getMessage.php',
+//         data: {un:$scope.userName}
+//     });
+// });
 
 
-app.factory("Data", function(){
+// app.factory("Data", function(){
 
-    var data = {
-        name:""
-    };
-    return {
-        getScope: function(){
-            return data.name;
-        },
-        setScope: function(setData){
-            data.name = setData;
-        }
-    }
-});
+//     var data = {
+//         name:""
+//     };
+//     return {
+//         getScope: function(){
+//             return data.name;
+//         },
+//         setScope: function(setData){
+//             data.name = setData;
+//         }
+//     }
+// });
