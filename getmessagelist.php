@@ -3,7 +3,6 @@ session_start();
 require_once "config.php";
 require_once "model/user.php";
 
-
 $u = unserialize($_SESSION['USER']);
 $messageClass = new message($u->getUsername(), 'masih');
 

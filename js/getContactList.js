@@ -80,7 +80,7 @@ app.controller('userContactsController', function ($scope, $http) {
             else if (xmlhttp.readyState == 1)
                 m.innerHTML = "please wait...";
         }
-        xmlhttp.open("GET", "getmessagelist.php?un="+$usr, false);
+        xmlhttp.open("GET", "getMessage.php?un="+$usr, false);
         xmlhttp.send();
     }
 
