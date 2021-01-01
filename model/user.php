@@ -178,7 +178,7 @@ class message
     {   
         $array = $this->messageList;
         foreach($array as $k =>$a){
-            $array[$k] = (json_encode($a));
+            $array[$k] = (($a));
         }
         //print_r($array);
         return $array;

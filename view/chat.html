@@ -16,6 +16,7 @@
 </head>
 
 <body>
+	
 	<div ng-app="userContacts" id="chat-container">
 		<div id="search-contacts">
 			<input type="text" placeholder="search" />
@@ -45,10 +46,11 @@
 		</div>
 		<div id="chat-massage-list" ng-controller="userMessageController">
 			<div class="massage-row your-message" ng-repeat="r in lst" >
-				<div ng-repeat="x in r">
-					<div>{{x.message}}</div>
-					<div class="massage-text">{{x.message}}</div>
-					<div class="massage-time">{{x.date}}</div>
+
+				<!-- <div ng-repeat="x in r"> -->
+					<div class="massage-text">{{r.message}}</div>
+					<div class="massage-time">{{r.date}}</div>
+
 				</div>
 			</div>
 

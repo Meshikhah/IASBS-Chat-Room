@@ -94,8 +94,8 @@ app.controller("userMessageController", function($scope, $http){
     $http.get('getmessagelist.php').then(function (d) {
 
         $scope.lst = d.data;
-        // alert($scope.lst);
          alert($scope.lst);
+         //alert($scope.lst);
 
         $scope.totalItems = $scope.lst.length;
         $scope.currentPage = 1;
