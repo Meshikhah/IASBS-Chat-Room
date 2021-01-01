@@ -45,17 +45,20 @@
 
 		</div>
 		<div id="chat-massage-list" ng-controller="userMessageController">
-			<div class="massage-row your-message" ng-repeat="r in lst" >
 
-					<div class="massage-text">{{r.message}}</div>
-					<div class="massage-time">{{r.date}}</div>
+			<div ng-repeat="r in lst">
+				<div ng-if="r.from_user" class="massage-row your-message"  >
+	
+						<div ng-if="r.from_user" class="massage-text">{{r.message}}</div>
+						<div ng-if="r.from_user" class="massage-time">{{r.date}}</div>
+				</div>
+	
+				<div ng-if="!r.from_user" class="massage-row Received-messages">
+					<div ng-if="!r.from_user" class="massage-text">{{r.message}}</div>
+					<div ng-if="!r.from_user" class="massage-time">{{r.date}}</div>
+				</div>
 
-				
-			</div>
 
-			<div class="massage-row Received-messages">
-				<div class="massage-text">ewcewcwecwefowepfoewfokewfiwefjwejfwejfoefwoiewfjiewfoewjfoejwfoiewfjewfjoewojfewjofjewofjowefjewofjjfewojfewojfojwefojweofwejofoejwfojwefojwefjo</div>
-				<div class="massage-time">azar 25</div>
 			</div>
 		</div>
 		

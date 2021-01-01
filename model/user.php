@@ -165,7 +165,7 @@ class message
             if($row["to_user"] == $username) 
                 // array_push($this->messageList["from_user"], $username);
                 array_push($this->messageList,["from_user"=>$username, "message" => $row["message"], "date"=> $row["time_status"] ]);
-            else array_push($this->messageList, ["from_user" =>$this->from_user ,"message" => $row["message"], "date"=> $row["time_status"]]);
+            else array_push($this->messageList, ["from_user" =>"" ,"message" => $row["message"], "date"=> $row["time_status"]]);
 
             // array_push($this->messageList["message"], $row["message"]);
             // array_push($this->messageList["date"], $row["time_status"]);
