@@ -33,7 +33,7 @@ app.controller('userContactsController', function ($scope, $http) {
         var request = $http({
             method: "post",
             url: 'getMessage.php',
-            data: {un:$scope.userName}
+            data: {un:$scope.lst[$index]}
         });
         
 
