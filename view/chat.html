@@ -45,9 +45,13 @@
 		</div>
 		<div id="chat-massage-list" ng-controller="userMessageController">
 			<div class="massage-row your-message" ng-repeat="r in lst" >
-				<div class="massage-text">{{r.message}}</div>
-				<div class="massage-time">{{r.date}}</div>
+				<div ng-repeat="x in r">
+					<div>{{x.message}}</div>
+					<div class="massage-text">{{x.message}}</div>
+					<div class="massage-time">{{x.date}}</div>
+				</div>
 			</div>
+
 			<div class="massage-row Received-messages">
 				<div class="massage-text">ewcewcwecwefowepfoewfokewfiwefjwejfwejfoefwoiewfjiewfoewjfoejwfoiewfjewfjoewojfewjofjewofjowefjewofjjfewojfewojfojwefojweofwejofoejwfojwefojwefjo</div>
 				<div class="massage-time">azar 25</div>

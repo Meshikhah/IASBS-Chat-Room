@@ -92,8 +92,11 @@ app.controller("userMessageController", function($scope, $http){
     $scope.clicked = -1;
     $scope.showLoader = true;
     $http.get('getmessagelist.php').then(function (d) {
+
         $scope.lst = d.data;
- 
+        // alert($scope.lst);
+         alert($scope.lst);
+
         $scope.totalItems = $scope.lst.length;
         $scope.currentPage = 1;
         $scope.numPerPage = 10;
@@ -107,7 +110,7 @@ app.controller("userMessageController", function($scope, $http){
         };
     // $scope.$watch(function(){
     //     $scope.userName = Data.getScope()
-    // });
+    });
 
     // $.ajax({
     //         url: 'getMessage.php',

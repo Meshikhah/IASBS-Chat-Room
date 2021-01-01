@@ -5,10 +5,10 @@ require_once "model/user.php";
 
 
 $u = unserialize($_SESSION['USER']);
-$messageClass = new message($u->getUsername(), 'masih');
+$messageClass = new message($u->getUsername(), 'mafi');
 
 $list = $messageClass->fetchMessagelist();
-print_r($list);
+
 echo json_encode($list);
 // echo $_REQUEST['un'];
 // if(isset($_REQUEST['un']) && isset($_SESSION['USER'])) {

@@ -173,10 +173,13 @@ class message
     }
 
     function fetchMessagelist()
-    {
-        
-        
-        return $this->messageList;
+    {   
+        $array = $this->messageList;
+        foreach($array as $k =>$a){
+            $array[$k] = (json_encode($a));
+        }
+        //print_r($array);
+        return $array;
     }
 }
 
