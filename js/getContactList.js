@@ -22,6 +22,28 @@ app.controller('userContactsController', function ($scope, $http) {
         $scope.onclick = function($index){
             $scope.clicked = $index;
             alert($scope.lst[$index]);
+
+            $usr = $scope.lst[$index];
+            //alert(usr);
+            $.ajax({
+                url: 'getMessage.php',
+                type: 'post',
+                async: !1,
+                //contentType: 'charset=utf-8',
+                data: { un: $usr},
+                success: function (data) {
+                   alert("seccess"+data);
+                }
+            });
+        
+
+
+
+            // $http({
+            //     method: "post",
+            //     url: 'getMessage.php',
+            //     data: {un:$scope.lst[$index]}
+            // });
 		}
 
         $scope.showLoader = false;
@@ -30,11 +52,6 @@ app.controller('userContactsController', function ($scope, $http) {
         //     Data.setScope($scope.lst[$index]);
         // });
 
-        var request = $http({
-            method: "post",
-            url: 'getMessage.php',
-            data: {un:$scope.lst[$index]}
-        });
         
 
     }, function (error) {

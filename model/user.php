@@ -118,9 +118,9 @@ class message
     private $time_status;
     private $messageList;
 
-    function __construct($username) {
+    function __construct($username, $to) {
         $this->from_user = $username;
-        getMessageList();
+        $this->getMessageList($to);
     }
 
     function getFromUser()
