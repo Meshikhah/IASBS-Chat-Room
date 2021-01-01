@@ -43,15 +43,10 @@
 			<span></span>	
 
 		</div>
-		<div id="chat-massage-list">
-			<div class="massage-row your-message">
-				<div class="massage-text">ewcewcwecwefowepfoewfokewfiwefjwejfwejfoefwoiewfjiewf
-					oewjfoejwfoiewfjewfjoewojfewjofjewofjowefjewofjjfewojfewojfojwefojweofwejofoe
-					jwfojwefojwefjooewjfoejwfoiewfjewfjoewojfewjofjewofjowefjewofjjfewojfewojfojwefojweofwejofoe
-					ewcewcwecwefowepfoewfokewfiwefjwejfwejfoefwoiewfjiewf
-					oewjfoejwfoiewfjewfjoewojfewjofjewofjowefjewofjjfewojfewojfojwefojweofwejofoe
-					jwfojwefojwefjooewjfoejwfoiewfjewfjoewojfewjofjewofjowefjewofjjfewojfewojfojwefojweofwejofo</div>
-				<div class="massage-time">azar 25</div>
+		<div id="chat-massage-list" ng-controller="userMessageController">
+			<div class="massage-row your-message" ng-repeat="r in lst" >
+				<div class="massage-text">{{r.message}}</div>
+				<div class="massage-time">{{r.date}}</div>
 			</div>
 			<div class="massage-row Received-messages">
 				<div class="massage-text">ewcewcwecwefowepfoewfokewfiwefjwejfwejfoefwoiewfjiewfoewjfoejwfoiewfjewfjoewojfewjofjewofjowefjewofjjfewojfewojfojwefojweofwejofoejwfojwefojwefjo</div>

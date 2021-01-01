@@ -89,34 +89,50 @@ app.controller('userContactsController', function ($scope, $http) {
 app.controller("userMessageController", function($scope, $http){
     $scope.userName;
 
-    $scope.$watch(function(){
-        $scope.userName = Data.getScope()
-    });
+    $scope.clicked = -1;
+    $scope.showLoader = true;
+    $http.get('getmessagelist.php').then(function (d) {
+        $scope.lst = d.data;
+ 
+        $scope.totalItems = $scope.lst.length;
+        $scope.currentPage = 1;
+        $scope.numPerPage = 10;
 
-    $.ajax({
-            url: 'getMessage.php',
-            type: 'post',
-            async: !1,
-            //contentType: 'charset=utf-8',
-            data: { un: $scope.userName},
-            success: function (data) {
-                alert("seccess"+data);
-            }
-        });
+        $scope.paginate = function (value) {
+            var begin, end, index;
+            begin = ($scope.currentPage - 1) * $scope.numPerPage;
+            end = begin + $scope.numPerPage;
+            index = $scope.lst.indexOf(value);
+            return (begin <= index && index < end);
+        };
+    // $scope.$watch(function(){
+    //     $scope.userName = Data.getScope()
+    // });
+
+    // $.ajax({
+    //         url: 'getMessage.php',
+    //         type: 'post',
+    //         async: !1,
+    //         //contentType: 'charset=utf-8',
+    //         data: { un: $scope.userName},
+    //         success: function (data) {
+    //             alert("seccess"+data);
+    //         }
+    //     });
 });
 
 
-app.factory("Data", function(){
+// app.factory("Data", function(){
 
-    var data = {
-        name:""
-    };
-    return {
-        getScope: function(){
-            return data.name;
-        },
-        setScope: function(setData){
-            data.name = setData;
-        }
-    }
-});
+//     var data = {
+//         name:""
+//     };
+//     return {
+//         getScope: function(){
+//             return data.name;
+//         },
+//         setScope: function(setData){
+//             data.name = setData;
+//         }
+//     }
+// });
