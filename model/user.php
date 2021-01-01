@@ -154,10 +154,11 @@ class message
         $paramTypes = "ss";
         $Parameters = array($this->from_user, $username);
         $result = database::ExecuteQuery('getMessageList', $paramTypes, $Parameters);
-
+       
         
         while ($row = $result->fetch_array())
         {
+            
             // $tempMessage = $row['message'];
 
             if($row["to_user"] == $username) 
@@ -165,7 +166,7 @@ class message
             else array_push($this->messageList["from_user"], $this->from_user);
 
             array_push($this->messageList["message"], $row["message"]);
-            array_push($this->messageList["date"], $row["date"]);
+            array_push($this->messageList["date"], $row["time_status"]);
             // array_push($this->messageList, $tempMessage);
         }
         return $this->messageList;
@@ -173,11 +174,9 @@ class message
 
     function fetchMessagelist()
     {
-        $list = array("from_user"=>array(), "message"=>array(), "date"=>array());
-        for($i = 0; $i < count($this->messageList); $i++) {
-            $list[$i] = $this->messageList[$i];
-        }
-        return $list;
+        
+        
+        return $this->messageList;
     }
 }
 
