@@ -334,6 +334,14 @@ class blocked
         return $this->blockedList;
 
     }
+
+    function fetachBlockedList(){
+        $list =  array();
+        for($i = 0; $i < count($this->blockedList); $i++) {
+            $list[$i] = $this->blockedList[$i];
+        }
+        return $list;
+    }
 }
 
 ?>

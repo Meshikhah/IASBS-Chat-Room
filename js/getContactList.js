@@ -80,9 +80,9 @@ app.controller('userContactsController', function ($scope, $http) {
 
     $scope.onclick4 = function(){
         var x = {user1:$scope.usr};
-        $http.post('getblockedlist.php', JSON.stringify(x)).then(function (responseText) {
+        $http.post('settblockedlist.php', JSON.stringify(x)).then(function (responseText) {
             //alert("ok");
-            $scope.messages = responseText.data;
+            // $scope.messages = responseText.data;
             $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText1) {
                 $scope.messages = responseText1.data;
 
