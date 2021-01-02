@@ -52,8 +52,8 @@ app.controller('userContactsController', function ($scope, $http) {
             var x = {user1:$scope.usr, msg:$scope.msg};
             $http.post('sendmessage.php', JSON.stringify(x)).then(function (responseText) {
             //alert(responseText.data);
-                $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText) {
-                    $scope.messages = responseText.data;
+                $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText1) {
+                    $scope.messages = responseText1.data;
     
             });
 

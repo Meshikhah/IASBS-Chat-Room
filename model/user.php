@@ -190,7 +190,7 @@ class message
         $paramTypes = "sss";
         $Parameters = array($this->from_user, $username, $message);
         $result = database::ExecuteQuery('sendMessage', $paramTypes, $Parameters);
-        getMessageList();
+        $this->getMessageList($username);
     }
 }
 
