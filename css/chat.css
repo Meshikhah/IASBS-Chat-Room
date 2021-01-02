@@ -164,7 +164,16 @@ body
     display: flex;
     flex-direction:column-reverse;
     padding: 0 20px;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+
 }
+#chat-massage-list::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
 .massage-row{
     display: grid;
     grid-template-columns: 70%;
