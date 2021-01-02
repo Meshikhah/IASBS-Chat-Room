@@ -3,6 +3,7 @@ var app = angular.module('userContacts', ['ui.bootstrap']);
 app.controller('userContactsController', function ($scope, $http) {
     $scope.clicked = -1;
     $scope.showLoader = true;
+    $scope.usr = "";
     $http.get('getContactList.php').then(function (d) {
         $scope.lst = d.data;
  
@@ -17,29 +18,76 @@ app.controller('userContactsController', function ($scope, $http) {
             index = $scope.lst.indexOf(value);
             return (begin <= index && index < end);
         };
-
-
-        // $scope.onclick = function($index){
-        //     $scope.clicked = $index;
-        //     alert($scope.lst[$index]);
-
-        //     $usr = $scope.lst[$index];
-        //     //alert(usr);
-        //     // $.ajax({
-        //     //     url: 'getMessage.php',
-        //     //     type: 'post',
-        //     //     async: !1,
-        //     //     //contentType: 'charset=utf-8',
-        //     //     data: { un: $usr},
-        //     //     success: function (data) {
-        //     //        alert("seccess"+data);
-        //     //     }
-        //     // });
-
-
-        //     //$http.post('/getMessage.php', {un: $usr}, config).then(successCallback, errorCallback);
         
 
+        $scope.onclick = function($index){
+            $scope.clicked = $index;
+            alert($scope.lst[$index]);
+
+            $scope.usr = $scope.lst[$index];
+            //alert(usr);
+            // $.ajax({
+            //     url: 'getMessage.php',
+            //     type: 'post',
+            //     async: !1,
+            //     //contentType: 'charset=utf-8',
+            //     data: { un: $usr},
+            //     success: function (data) {
+            //        alert("seccess"+data);
+            }
+            // });
+
+
+        $scope.p1 = $http({
+                method: 'GET',
+                url: 'getMessage.php'
+              }).then(function successCallback(response) {
+                  // this callback will be called asynchronously
+                  // when the response is available
+                }, function errorCallback(response) {
+                  // called asynchronously if an error occurs
+                  // or server returns response with an error status.
+                });
+        
+        $q.all([$scope.onclick, $scope.p1]).then(function(){
+            alert("fuck you");
+        });
+
+        $scope.sth = function($index){
+            $scope.onclick = function($index){
+                $scope.clicked = $index;
+                alert($scope.lst[$index]);
+    
+                $scope.usr = $scope.lst[$index];
+                //alert(usr);
+                // $.ajax({
+                //     url: 'getMessage.php',
+                //     type: 'post',
+                //     async: !1,
+                //     //contentType: 'charset=utf-8',
+                //     data: { un: $usr},
+                //     success: function (data) {
+                //        alert("seccess"+data);
+                }
+                // });
+    
+    
+            $scope.p1 = $http({
+                    method: 'GET',
+                    url: 'getMessage.php'
+                  }).then(function successCallback(response) {
+                      // this callback will be called asynchronously
+                      // when the response is available
+                    }, function errorCallback(response) {
+                      // called asynchronously if an error occurs
+                      // or server returns response with an error status.
+                    });
+            
+            $q.all([$scope.onclick, $scope.p1]).then(function(){
+                alert("fuck you");
+            });
+
+        }
 
 
             // xmlhttp = new XMLHttpRequest();
