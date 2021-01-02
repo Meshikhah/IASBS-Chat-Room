@@ -17,23 +17,23 @@
 
 <body>
 	
-	<div ng-app="userContacts" id="chat-container">
+	
+	<div ng-app="userContacts" id="chat-container" ng-controller="userContactsController">
 		<div id="search-contacts">
 			<input type="text" placeholder="search" />
 		</div>
 
 
 		<div id="Contacts-list">
-			<div ng-controller="userContactsController">
 				
-				<div class="Contacts" ng-click="sth($index)" ng-repeat="r in lst">
+				<div class="Contacts" ng-click="onclick($index);" ng-repeat="r in lst">
+				
 					<div class="title-txt">{{r}}</div>
 					<div class="date">1999/01/06</div>
 					<div class="Contacts-Message">hey!</div>
 				</div>
 
 			
-			</div>
 		</div>
 
 		<div id="new-message-contacts">
@@ -44,11 +44,13 @@
 			<span></span>	
 
 		</div>
-		<div id="chat-massage-list" ng-controller="userMessageController">
 
-			<div ng-repeat="r in lst">
+		<div id="chat-massage-list">
+
+			<div ng-repeat="r in messages">
+				
 				<div ng-if="r.from_user" class="massage-row your-message"  >
-	
+						
 						<div ng-if="r.from_user" class="massage-text">{{r.message}}</div>
 						<div ng-if="r.from_user" class="massage-time">{{r.date}}</div>
 				</div>

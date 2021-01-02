@@ -3,8 +3,12 @@ session_start();
 require_once "config.php";
 require_once "model/user.php";
 
+
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+//echo $request->user1;
 $u = unserialize($_SESSION['USER']);
-$messageClass = new message($u->getUsername(), 'masih');
+$messageClass = new message($u->getUsername(), $request->user1);
 
 $list = $messageClass->fetchMessagelist();
 
