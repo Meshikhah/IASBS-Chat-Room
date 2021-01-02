@@ -41,7 +41,7 @@
 			 
 		</div>
 		<div id="chat-title">
-			<span>Reza Masomi</span>	
+			<span>{{usr}}</span>	
 			<a href="#" ><img id="kebabmenu" src="image/kebabmenu.png" alt="send"></a>
 		</div>
 
@@ -65,8 +65,8 @@
 		</div>
 		
 		<div id="chatPage">
-			<textarea class="txtArea" placeholder="type a Message "></textarea>
-			<a href="#" ><img src="image/send.png" alt="send"></a>
+			<textarea class="txtArea" id="txt-msg" placeholder="Type a message..."></textarea>
+			<a ng-click="onclick2();" ><img src="image/send.png" alt="send"></a>
 		</div>
 
 

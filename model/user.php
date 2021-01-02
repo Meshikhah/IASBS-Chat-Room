@@ -183,6 +183,15 @@ class message
         //print_r($array);
         return $array;
     }
+
+    function sendMessage($username, $message) {
+        $this->messageList = array();
+        // $tempMessage = array("message"=>array(), "date"=>array());
+        $paramTypes = "sss";
+        $Parameters = array($this->from_user, $username, $message);
+        $result = database::ExecuteQuery('sendMessage', $paramTypes, $Parameters);
+        getMessageList();
+    }
 }
 
 

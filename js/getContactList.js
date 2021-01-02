@@ -22,44 +22,6 @@ app.controller('userContactsController', function ($scope, $http) {
             index = $scope.lst.indexOf(value);
             return (begin <= index && index < end);
         };
-        
-
-        // $scope.onclick = function($index){
-        //     $scope.clicked = $index;
-        //     alert($scope.lst[$index]);
-
-        //     $scope.usr = $scope.lst[$index];
-           
-        //     //alert(usr);
-        //     // $.ajax({
-        //     //     url: 'getMessage.php',
-        //     //     type: 'post',
-        //     //     async: !1,
-        //     //     //contentType: 'charset=utf-8',
-        //     //     data: { un: $usr},
-        //     //     success: function (data) {
-        //     //        alert("seccess"+data);
-        //     // });
-        // }
-        
-        
-        
-
-    
-
-
-            // xmlhttp = new XMLHttpRequest();
-            // xmlhttp.onreadystatechange = function ()
-            // {
-            //     if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            //         m.innerHTML = xmlhttp.responseText;
-            //     else if (xmlhttp.readyState == 1)
-            //         m.innerHTML = "please wait...";
-            // }
-            // xmlhttp.open("GET", "getmessagelist.php?un="+$usr, false);
-            // xmlhttp.send();
-		//}
-
         $scope.showLoader = false;
 
 
@@ -73,24 +35,31 @@ app.controller('userContactsController', function ($scope, $http) {
 
         $scope.usr = $scope.lst[$index];
         var x = {user1:$scope.usr};
-        // $.ajax({
-        //     url: 'getmessage1.php',
-        //     type: 'POST',
-        //     async: !1,
-        //     //contentType: 'charset=utf-8',
-        //     data: { un_to: $scope.usr},
-        //     success: function (data) {
-        //         alert("ok:"+data);
-        //     }
-        // });
-
-
         $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText) {
             //alert("ok");
             $scope.messages = responseText.data;
 
             //alert($scope.messages.data);
         });
+    }
+
+    $scope.onclick2 = function() {
+        $scope.msg = document.getElementById('txt-msg').value;
+        alert($scope.msg);
+        alert($scope.usr);
+
+        if($scope.msg != "") {
+            var x = {user1:$scope.usr, msg:$scope.msg};
+            $http.post('sendmessage.php', JSON.stringify(x)).then(function (responseText) {
+            //alert(responseText.data);
+                $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText) {
+                    $scope.messages = responseText.data;
+    
+            });
+
+        });
+        }
+
     }
 
 });
