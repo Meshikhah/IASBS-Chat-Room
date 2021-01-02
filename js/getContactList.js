@@ -45,9 +45,9 @@ app.controller('userContactsController', function ($scope, $http) {
 
     $scope.onclick2 = function() {
         $scope.msg = document.getElementById('txt-msg').value;
-        alert($scope.msg);
-        alert($scope.usr);
-
+        //alert($scope.msg);
+        //alert($scope.usr);
+        document.getElementById('txt-msg').value = "";
         if($scope.msg != "") {
             var x = {user1:$scope.usr, msg:$scope.msg};
             $http.post('sendmessage.php', JSON.stringify(x)).then(function (responseText) {
