@@ -62,6 +62,22 @@ app.controller('userContactsController', function ($scope, $http) {
 
     }
 
+
+    $scope.onclick3 = function($index){
+        
+        var x = {user1:$scope.usr, date:$scope.messages[$index].date};
+        $http.post('deletemessage.php', JSON.stringify(x)).then(function (responseText) {
+            //alert("ok");
+            $scope.messages = responseText.data;
+            $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText1) {
+                $scope.messages = responseText1.data;
+
+        });
+
+            //alert($scope.messages.data);
+        });
+    }
+
 });
 
 app.controller("userMessageController", function($scope, $http){

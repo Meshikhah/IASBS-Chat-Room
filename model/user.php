@@ -192,6 +192,15 @@ class message
         $result = database::ExecuteQuery('sendMessage', $paramTypes, $Parameters);
         $this->getMessageList($username);
     }
+
+    function deleteMessage($username, $date){
+
+        $paramTypes = "sss";
+        $Parameters = array($this->from_user, $username, $date);
+        $result = database::ExecuteQuery('deleteMessage', $paramTypes, $Parameters);
+
+        $this->getMessageList($username);
+    }
 }
 
 
