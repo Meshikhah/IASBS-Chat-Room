@@ -200,6 +200,8 @@ body
     color: #eee;
     border:1px solid #0048AA;
     border-radius: 14px 14px 0 14px;
+    cursor: pointer;
+
 
 }
 .your-message{
