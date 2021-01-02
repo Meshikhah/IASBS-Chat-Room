@@ -78,8 +78,8 @@ body
 .Contacts
 {
     display: grid;
-    
-    
+    grid-template-columns:40px 1fr max-content;
+	grid-gap:10px;
     color: #ddd;
     font-size: 1.3rem;
     border-bottom: 1px solid #002c88;
@@ -96,6 +96,12 @@ body
 .title-txt{
     font-weight: bold;
     color:#eee;
+}
+.Contacts > img 
+{
+	grid-row: 2 span;
+	height:40px;
+	border-radius:100%;
 }
 .date{
     color: #ddd;
