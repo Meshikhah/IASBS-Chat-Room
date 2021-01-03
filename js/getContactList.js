@@ -162,7 +162,7 @@ app.controller('userContactsController', function ($scope, $http) {
         var x = {user1:$scope.usr, message:$scope.messages[$index].message, date:$scope.messages[$index].date};
         var editedMessage = prompt("Edit the message", $scope.messages[$index].message);
         if(editedMessage != "" && editedMessage != $scope.messages[$index].message){
-            alert($scope.messages[$index].message);
+            // alert($scope.messages[$index].message);
             var x = {user1:$scope.usr, message:editedMessage, date:$scope.messages[$index].date};
             $http.post('editmessage.php', JSON.stringify(x)).then(function (responseText) {
                 //alert("ok");
