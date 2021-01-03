@@ -113,7 +113,6 @@ class user extends person
     {
         $result = database::ExecuteQuery('getAllUsers');
         $tempUser = "";
-        $i = 0;
         while ($row = $result->fetch_array())
         {
             
@@ -121,6 +120,20 @@ class user extends person
         }
         return $tempUser;
     }
+    
+    function profile($user) {
+        $tempUser = "";
+        $paramTypes = "s";
+        $Parameters = array($user);
+        $result = database::ExecuteQuery('profile', $paramTypes, $Parameters); 
+        $row = $result->fetch_array();
+        $tempUser .= "name:". ($row['name']). ",";
+        $tempUser .= "family:". ($row['family']). ",";
+        $tempUser .= "email:". ($row['email']). ",";
+        $tempUser .= "username:".($row['username']). ",";
+        return $tempUser;
+    }
+
 }
 
 class message

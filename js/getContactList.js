@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 var app = angular.module('userContacts', ['ui.bootstrap']);
 
 app.controller('userContactsController', function ($scope, $http) {
@@ -133,12 +127,12 @@ app.controller('userContactsController', function ($scope, $http) {
             // $location.path('/index.php');
             // $location.replace();
             // $route.reload();
-            location.reload()
+            location.reload();
         });
     }
 
 
-    $scope.imgload =function() {  
+    $scope.imgload = function() {  
         $.getJSON('imageprofile.php', function(data) {
             $scope.imgs = data;
             //alert($scope.imgs);
@@ -147,8 +141,22 @@ app.controller('userContactsController', function ($scope, $http) {
             }
         });
         
+        
     }
 
+    $scope.onclick_profile = function(){
+
+        var x = {user1:$scope.usr};
+
+        $http.post('profile.php', JSON.stringify(x)).then(function(responseText){
+            $scope.prof = responseText.data;
+            var prf = $scope.prof;
+            prf = prf.split('"').join("");
+            prf = prf.split(':').join(": ");
+            prf = prf.split(',').join("\n");
+            alert(prf);
+        });
+    }
 
 
 

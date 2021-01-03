@@ -289,3 +289,7 @@ body
     min-width: 30px;
     height: 37px;
 }
+
+#un-profile {
+    cursor: pointer;
+}
