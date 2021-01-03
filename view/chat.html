@@ -52,7 +52,18 @@
 				
 				<div ng-if="r.from_user" class="massage-row your-message"  >
 						
-						<div ng-click="onclick3($index)" ng-if="r.from_user" class="massage-text">{{r.message}}</div>
+						<div  ng-if="r.from_user" class="massage-text">
+							{{r.message}}
+							<div class="dropdown1 message-dropdown">
+								<img id="kebabmenumessage" class="dropbtn1" src="image/kebabmenu.png" alt="kebabmenu">
+								<div id="myDropdown1" class="dropdown-content1">
+									<a href="#">Delete Message</a>
+									<a href="#">Edit Message</a>
+								</div>
+							</div>
+						</div>
+
+						
 						<div ng-if="r.from_user" class="massage-time">{{r.date}}</div>
 				</div>
 	
