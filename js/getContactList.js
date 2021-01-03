@@ -10,7 +10,7 @@ app.controller('userContactsController', function ($scope, $http) {
 
     $http.get('getContactList.php').then(function (d) {
         $scope.lst = d.data;
- 
+        alert($scope.lst);
         $scope.totalItems = $scope.lst.length;
         $scope.currentPage = 1;
         $scope.numPerPage = 10;
@@ -93,7 +93,30 @@ app.controller('userContactsController', function ($scope, $http) {
         });
     }
 
-
+    $scope.onclick5 = function(){
+        
+        
+        $http.get('allusers.php').then(function (d) {
+            var x = {user1:$scope.usr};
+            $scope.allusers = d.data;
+            var all = $scope.allusers;
+            all[0]=" ";
+            all = all.split(' ').join("\n");
+            all = all.split('"').join(" ");
+            var contact = prompt(all,"Type username");
+            if (contact == null || contact == "") {
+                txt = "User cancelled the prompt.";
+            } else if(all.search(contact)) {
+                alert(contact);
+                var x = {user1:contact};
+                $http.post('addcontact.php', JSON.stringify(x)).then(function (responseText) {
+                    $http.get('getContactList.php').then(function (d) {
+                        $scope.lst = d.data;
+                    });
+              });
+            }
+        });
+    }
 
 });
 

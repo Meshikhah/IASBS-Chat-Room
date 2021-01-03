@@ -108,6 +108,19 @@ class user extends person
         }
         return false;
     }
+
+    public static function GetAllUsers()
+    {
+        $result = database::ExecuteQuery('getAllUsers');
+        $tempUser = "";
+        $i = 0;
+        while ($row = $result->fetch_array())
+        {
+            
+            $tempUser .= ($row['username']). " ";
+        }
+        return $tempUser;
+    }
 }
 
 class message
