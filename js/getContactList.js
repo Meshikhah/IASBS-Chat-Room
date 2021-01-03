@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 var app = angular.module('userContacts', ['ui.bootstrap']);
 
 app.controller('userContactsController', function ($scope, $http) {
@@ -22,28 +29,31 @@ app.controller('userContactsController', function ($scope, $http) {
             return (begin <= index && index < end);
         };
         $scope.showLoader = false;
-
+        
+        $scope.imgload();
 
     }, function (error) {
         alert('failed to load users list');
     });
-
+    
+    
     $scope.onclick = function($index){
         $scope.clicked = $index;
         //alert($scope.lst[$index]);
-
+        
         $scope.usr = $scope.lst[$index];
         var x = {user1:$scope.usr};
         $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText) {
             //alert("ok");
             $scope.messages = responseText.data;
-
+            
             //alert($scope.messages.data);
         });
     }
-
+    
     $scope.onclick2 = function() {
         $scope.msg = document.getElementById('txt-msg').value;
+        
         //alert($scope.msg);
         //alert($scope.usr);
         document.getElementById('txt-msg').value = "";
@@ -126,6 +136,21 @@ app.controller('userContactsController', function ($scope, $http) {
             location.reload()
         });
     }
+
+
+    $scope.imgload =function() {  
+        $.getJSON('imageprofile.php', function(data) {
+            $scope.imgs = data;
+            //alert($scope.imgs);
+            for(let i = 0; i < $scope.lst.length; i++) {
+                document.getElementById('img-profile-'+i).src =  $scope.imgs[i].download_url;
+            }
+        });
+        
+    }
+
+
+
 
 });
 
