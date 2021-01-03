@@ -8,7 +8,7 @@ app.controller('userContactsController', function ($scope, $http) {
 
     
     
-
+    
     $http.get('getContactList.php').then(function (d) {
         $scope.lst = d.data;
         $scope.totalItems = $scope.lst.length;
@@ -22,10 +22,12 @@ app.controller('userContactsController', function ($scope, $http) {
             index = $scope.lst.indexOf(value);
             return (begin <= index && index < end);
         };
+        
         $scope.showLoader = false;
         
+        
         $scope.imgload();
-
+        
     }, function (error) {
         alert('failed to load users list');
     });
@@ -43,7 +45,25 @@ app.controller('userContactsController', function ($scope, $http) {
             
             //alert($scope.messages.data);
         });
+        $http.post('getblockedlist.php').then(function (responseText1) {
+            $scope.blockedlist = responseText1.data;
+            //alert($scope.blockedlist);
+    
+            if(($scope.blockedlist.includes($scope.usr))) {
+                //alert("block");
+                document.getElementById('txt-msg').readOnly = true;
+                document.getElementById('txt-msg').placeholder = "Blocked";
+            }else {
+                //alert("unblock");
+    
+                document.getElementById('txt-msg').readOnly = false;
+                document.getElementById('txt-msg').placeholder = "Type a message...";
+            }
+                
+         });
     }
+    
+    
     
     $scope.onclick2 = function() {
         $scope.msg = document.getElementById('txt-msg').value;
@@ -54,7 +74,7 @@ app.controller('userContactsController', function ($scope, $http) {
         if($scope.msg != "") {
             var x = {user1:$scope.usr, msg:$scope.msg};
             $http.post('sendmessage.php', JSON.stringify(x)).then(function (responseText) {
-            //alert(responseText.data);
+                //alert(responseText.data);
                 $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText1) {
                     $scope.messages = responseText1.data;
     
@@ -86,10 +106,18 @@ app.controller('userContactsController', function ($scope, $http) {
         $http.post('setblockedlist.php', JSON.stringify(x)).then(function (responseText) {
             //alert("ok");
             // $scope.messages = responseText.data;
-            $http.post('getblockedlist.php', JSON.stringify(x)).then(function (responseText1) {
+            $http.post('getblockedlist.php').then(function (responseText1) {
                 $scope.blockedlist = responseText1.data;
                 alert($scope.blockedlist);
 
+                if(($scope.blockedlist.includes($scope.usr))) {
+                    document.getElementById('txt-msg').readOnly = true;
+                    document.getElementById('txt-msg').placeholder = "Blocked";
+                }else {
+                    document.getElementById('txt-msg').readOnly = false;
+                    document.getElementById('txt-msg').placeholder = "Type a message...";
+                }
+                    
         });
 
             //alert($scope.messages.data);
@@ -157,6 +185,15 @@ app.controller('userContactsController', function ($scope, $http) {
             alert(prf);
         });
     }
+
+    $scope.isBlock = function() {
+        
+        var x = document.getElementById('txt-msg').placeholder;
+        if(x == "Blocked")return true;
+        else return false;
+
+    }
+    
 
     $scope.edit = function($index){
         var x = {user1:$scope.usr, message:$scope.messages[$index].message, date:$scope.messages[$index].date};
