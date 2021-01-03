@@ -108,7 +108,7 @@ app.controller('userContactsController', function ($scope, $http) {
             // $scope.messages = responseText.data;
             $http.post('getblockedlist.php').then(function (responseText1) {
                 $scope.blockedlist = responseText1.data;
-                alert($scope.blockedlist);
+                //alert($scope.blockedlist);
 
                 if(($scope.blockedlist.includes($scope.usr))) {
                     document.getElementById('txt-msg').readOnly = true;
@@ -129,7 +129,7 @@ app.controller('userContactsController', function ($scope, $http) {
         $http.post('unblock.php', JSON.stringify(x)).then(function(responseText){
             $http.post('getblockedlist.php').then(function (responseText1) {
                 $scope.blockedlist = responseText1.data;
-                alert($scope.blockedlist);
+                //alert($scope.blockedlist);
 
                 if(($scope.blockedlist.includes($scope.usr))) {
                     document.getElementById('txt-msg').readOnly = true;
