@@ -19,7 +19,7 @@ app.controller('userContactsController', function ($scope, $http) {
         $scope.lst = d.data;
         $scope.totalItems = $scope.lst.length;
         $scope.currentPage = 1;
-        $scope.numPerPage = 10;
+        $scope.numPerPage = 100;
 
         $scope.paginate = function (value) {
             var begin, end, index;
@@ -167,7 +167,7 @@ app.controller("userMessageController", function($scope, $http){
 
         $scope.totalItems = $scope.lst.length;
         $scope.currentPage = 1;
-        $scope.numPerPage = 10;
+        $scope.numPerPage = 100;
 
         $scope.paginate = function (value) {
             var begin, end, index;

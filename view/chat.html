@@ -4,7 +4,7 @@
 	<title>Messanger</title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/chat.css">
-
+	
 	<script src="js/angular/angular.js"></script>
 	<script src="js/jquery/jquery.js"></script>
 	<script src="js/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
@@ -40,10 +40,15 @@
 			 
 		</div>
 		<div id="chat-title">
-			<span>{{usr}}</span>	
-			<a><img id="kebabmenu" src="image/kebabmenu.png" ng-click="logout()" alt="send"></a>
+			<span>{{usr}}</span>
+			<div class="dropdown">
+				<img id="kebabmenu" class="dropbtn" src="image/kebabmenu.png" alt="kebabmenu" onclick="myFunction()" >
+				<div id="myDropdown" class="dropdown-content">
+				    <a href="#">Block Contact</a>
+				    <a href="#">Delete Contact</a>
+				</div>
+			</div>
 		</div>
-
 		<div id="chat-massage-list">
 
 			<div ng-repeat="r in messages">
@@ -74,4 +79,5 @@
 	</div>
 
 </body>
+<script src="js/chat.js"></script>
 </html>
