@@ -118,8 +118,9 @@ app.controller('userContactsController', function ($scope, $http) {
     }
 
     $scope.logout = function(){
-        $http.post('logout.php').then(function(){
-            alert("logout me");
+        $http.get('logout.php').then(function(){
+            //alert("logout me");
+            location.reload();
             // $location.path('index.php');
         });
     }
