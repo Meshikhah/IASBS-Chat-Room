@@ -380,6 +380,13 @@ class blocked
         }
         return $list;
     }
+
+    function unBlock($user){
+        $paramTypes = "ss";
+        $Parameters = array($this->username, $user);
+        $result = database::ExecuteQuery('unBlock', $paramTypes, $Parameters);
+        $this->getBlockdList();
+    }
 }
 
 ?>

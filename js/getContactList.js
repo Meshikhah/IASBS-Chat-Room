@@ -101,7 +101,7 @@ app.controller('userContactsController', function ($scope, $http) {
         });
     }
 
-    $scope.onclick4 = function(){
+    $scope.block = function(){
         var x = {user1:$scope.usr};
         $http.post('setblockedlist.php', JSON.stringify(x)).then(function (responseText) {
             //alert("ok");
@@ -121,6 +121,25 @@ app.controller('userContactsController', function ($scope, $http) {
         });
 
             //alert($scope.messages.data);
+        });
+    }
+
+    $scope.unblock = function(){
+        var x ={user1:$scope.usr};
+        $http.post('unblock.php', JSON.stringify(x)).then(function(responseText){
+            $http.post('getblockedlist.php').then(function (responseText1) {
+                $scope.blockedlist = responseText1.data;
+                alert($scope.blockedlist);
+
+                if(($scope.blockedlist.includes($scope.usr))) {
+                    document.getElementById('txt-msg').readOnly = true;
+                    document.getElementById('txt-msg').placeholder = "Blocked";
+                }else {
+                    document.getElementById('txt-msg').readOnly = false;
+                    document.getElementById('txt-msg').placeholder = "Type a message...";
+                }
+                    
+            });
         });
     }
 
