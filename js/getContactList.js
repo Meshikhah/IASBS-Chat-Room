@@ -10,7 +10,6 @@ app.controller('userContactsController', function ($scope, $http) {
 
     $http.get('getContactList.php').then(function (d) {
         $scope.lst = d.data;
-        alert($scope.lst);
         $scope.totalItems = $scope.lst.length;
         $scope.currentPage = 1;
         $scope.numPerPage = 10;
@@ -107,7 +106,7 @@ app.controller('userContactsController', function ($scope, $http) {
             if (contact == null || contact == "") {
                 txt = "User cancelled the prompt.";
             } else if(all.search(contact)) {
-                alert(contact);
+                //alert(contact);
                 var x = {user1:contact};
                 $http.post('addcontact.php', JSON.stringify(x)).then(function (responseText) {
                     $http.get('getContactList.php').then(function (d) {

@@ -241,6 +241,9 @@ class contact
     }
 
     function addContact($user) {
+        for($i = 0; $i < count($this->contactList); $i++) {
+            if($this->contactList[$i] == $user) return;
+        }
         $paramTypes = "ss";
         $Parameters = array($this->username, $user);
         database::ExecuteQuery('addContact', $paramTypes, $Parameters);
