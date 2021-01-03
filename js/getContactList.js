@@ -158,6 +158,25 @@ app.controller('userContactsController', function ($scope, $http) {
         });
     }
 
+    $scope.edit = function($index){
+        var x = {user1:$scope.usr, message:$scope.messages[$index].message, date:$scope.messages[$index].date};
+        var editedMessage = prompt("Edit the message", $scope.messages[$index].message);
+        if(editedMessage != "" && editedMessage != $scope.messages[$index].message){
+            alert($scope.messages[$index].message);
+            $http.post('editmessage.php', JSON.stringify(x)).then(function (responseText) {
+                //alert("ok");
+                $scope.messages = responseText.data;
+                $http.post('getmessagelist.php', JSON.stringify(x)).then(function (responseText1) {
+                    $scope.messages = responseText1.data;
+    
+            });
+                //alert($scope.messages.data);
+            });
+            
+
+        }
+    }
+
 
 
 });

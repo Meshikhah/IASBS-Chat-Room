@@ -227,6 +227,15 @@ class message
 
         $this->getMessageList($username);
     }
+
+    function editMessage($username, $date, $message){
+        
+        $paramTypes = "ssss";
+        $Parameters = array($this->from_user, $username, $date, $message);
+        $result = database::ExecuteQuery('editMessage', $paramTypes, $Parameters);
+
+        $this->getMessageList($username);
+    }
 }
 
 
