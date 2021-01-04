@@ -347,3 +347,9 @@ body
 .menumessage{
     background-color: #ddd;
 }
+@media only screen and (max-width: 800px) {
+    #chat-container{
+        width: 100%!important;
+        min-width: unset!important;
+    }
+}
